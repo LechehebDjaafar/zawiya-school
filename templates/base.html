@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="المدرسة الإلكترونية للزاوية التجانية بتماسين - تعليم القرآن الكريم وعلومه عن بعد">
+    <meta name="keywords" content="الزاوية التجانية, تماسين, تحفيظ القرآن, التعليم الإلكتروني">
+    <meta name="author" content="الزاوية التجانية بتماسين">
+    
+    <title>{% block title %}المدرسة الإلكترونية للزاوية التجانية{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <a href="{{ url_for('index') }}" class="nav-brand">
+                    <div class="logo-container">
+                        <i class="fas fa-mosque logo-icon"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>الزاوية التجانية</h1>
+                        <span>المدرسة الإلكترونية - تماسين</span>
+                    </div>
+                </a>
+                
+                <!-- Menu -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="{{ url_for('index') }}#home" class="nav-link">الرئيسية</a></li>
+                    <li><a href="{{ url_for('index') }}#about" class="nav-link">عن المدرسة</a></li>
+                    <li><a href="{{ url_for('index') }}#programs" class="nav-link">البرامج</a></li>
+                    <li><a href="{{ url_for('index') }}#achievements" class="nav-link">الإنجازات</a></li>
+                    <li><a href="{{ url_for('structure_page') }}" class="nav-link">الهيكل التنظيمي</a></li>
+                    <li><a href="{{ url_for('contact_page') }}" class="nav-link">اتصل بنا</a></li>
+                    <li><a href="{{ url_for('register_page') }}" class="btn btn-primary btn-register">
+                        <i class="fas fa-user-plus"></i> سجل الآن
+                    </a></li>
+                </ul>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: About -->
+                <div class="footer-col">
+                    <h3>عن الزاوية التجانية</h3>
+                    <p>المدرسة الإلكترونية للزاوية التجانية بتماسين، منارة علمية منذ عام 1803م، نسعى لنشر تعليم القرآن الكريم وعلومه عبر التقنيات الحديثة.</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('index') }}"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="{{ url_for('index') }}#programs"><i class="fas fa-chevron-left"></i> البرامج التعليمية</a></li>
+                        <li><a href="{{ url_for('structure_page') }}"><i class="fas fa-chevron-left"></i> الهيكل التنظيمي</a></li>
+                        <li><a href="{{ url_for('register_page') }}"><i class="fas fa-chevron-left"></i> التسجيل</a></li>
+                        <li><a href="{{ url_for('contact_page') }}"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Info -->
+                <div class="footer-col">
+                    <h3>معلومات الاتصال</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>تماسين، تقرت، الجزائر</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+213562036738">+213 555 123 456</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mouhammedelbachir23@gmail.com">mouhammedelbachir23@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>السبت - الجمعة: 8:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter -->
+                <div class="footer-col">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر الأخبار والفعاليات</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 المدرسة الإلكترونية للزاوية التجانية. جميع الحقوق محفوظة.</p>
+                <p>تم التطوير بكل <i class="fas fa-heart" style="color: #D4AF37;"></i> في الجزائر</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% block title %}الهيكل التنظيمي - المدرسة الإلكترونية للزاوية التجانية{% endblock %}
+
+{% block content %}
+
+<!-- Structure Hero -->
+<section class="page-hero structure-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content text-center" data-aos="fade-up">
+            <i class="fas fa-sitemap" style="font-size: 4rem; margin-bottom: 20px;"></i>
+            <h1>الهيكل التنظيمي</h1>
+            <p>تعرف على القيادات والطاقم التعليمي للمدرسة الإلكترونية</p>
+        </div>
+    </div>
+</section>
+
+<!-- Leadership Section -->
+<section class="section leadership-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">القيادة الروحية</span>
+            <h2 class="section-title">شيخ الطريقة التجانية</h2>
+        </div>
+        
+        {% for leader in structure.leadership %}
+        <div class="leader-card" data-aos="zoom-in">
+            <div class="leader-image-container">
+                {% if leader.image %}
+                <!-- صورة حقيقية للشيخ -->
+                <img src="{{ url_for('static', filename='images/' + leader.image) }}"
+                    alt="{{ leader.name }}"
+                    class="leader-photo">
+                {% else %}
+                <!-- أيقونة افتراضية -->
+                <div class="leader-image-placeholder">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                {% endif %}
+            </div>
+            <div class="leader-info">
+                <h2>{{ leader.name }}</h2>
+                <p class="leader-position">{{ leader.position }}</p>
+                <p class="leader-description">{{ leader.description }}</p>
+                <div class="leader-quote">
+                    <i class="fas fa-quote-right"></i>
+                    <p>"العلم نور والجهل ظلام، فاطلبوا العلم من المهد إلى اللحد"</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- Administration Section -->
+<section class="section administration-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">الإدارة</span>
+            <h2 class="section-title">الإدارة التنفيذية</h2>
+            <p class="section-description">فريق إداري متخصص لضمان سير العملية التعليمية بأفضل صورة</p>
+        </div>
+        
+    <div class="team-grid">
+        {% for admin in structure.administration %}
+        <div class="team-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="team-image">
+                {% if admin.image %}
+                <!-- صورة حقيقية للشخص -->
+                <img src="{{ url_for('static', filename='images/' + admin.image) }}"
+                    alt="{{ admin.name }}"
+                    class="team-photo">
+                {% else %}
+                <!-- أيقونة افتراضية -->
+                <div class="team-image-placeholder">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                {% endif %}
+            </div>
+            <div class="team-content">
+                <h3>{{ admin.name }}</h3>
+                <p class="team-position">{{ admin.position }}</p>
+                <p class="team-description">{{ admin.description }}</p>
+                <div class="team-contact">
+                    {% if admin.email %}
+                    <a href="mailto:{{ admin.email }}" class="contact-link">
+                        <i class="fas fa-envelope"></i> {{ admin.email }}
+                    </a>
+                    {% endif %}
+                    {% if admin.phone %}
+                    <a href="tel:{{ admin.phone }}" class="contact-link">
+                        <i class="fas fa-phone"></i> {{ admin.phone }}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    </div>
+</section>
+
+<!-- Teachers Section -->
+<section class="section teachers-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">الهيئة التعليمية</span>
+            <h2 class="section-title">المعلمون والمشايخ</h2>
+            <p class="section-description">نخبة من المعلمين المتخصصين في علوم القرآن والشريعة</p>
+        </div>
+        
+        <div class="teachers-grid">
+            {% for teacher in structure.teachers %}
+            <div class="teacher-card" data-aos="flip-left" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="teacher-image">
+                    <div class="teacher-image-placeholder">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="teacher-badge">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                </div>
+                <div class="teacher-content">
+                    <h3>{{ teacher.name }}</h3>
+                    <p class="teacher-position">{{ teacher.position }}</p>
+                    <div class="teacher-details">
+                        <div class="detail-row">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>{{ teacher.specialization }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-award"></i>
+                            <span>خبرة {{ teacher.experience }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Technical Support Section -->
+<section class="section technical-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">الدعم التقني</span>
+            <h2 class="section-title">فريق الدعم والمساعدة</h2>
+        </div>
+        
+        <div class="support-cards">
+            {% for tech in structure.technical %}
+            <div class="support-card" data-aos="fade-up">
+                <div class="support-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>{{ tech.name }}</h3>
+                <p class="support-position">{{ tech.position }}</p>
+                <p class="support-description">{{ tech.description }}</p>
+                <a href="mailto:{{ tech.email }}" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> تواصل معنا
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Organizational Chart -->
+<section class="section org-chart-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">الهيكل التنظيمي</span>
+            <h2 class="section-title">المخطط التنظيمي</h2>
+        </div>
+        
+        <div class="org-chart" data-aos="fade-up">
+            <div class="org-level level-1">
+                <div class="org-box leader">
+                    <i class="fas fa-crown"></i>
+                    <h4>شيخ الطريقة التجانية</h4>
+                    <p>القيادة الروحية</p>
+                </div>
+            </div>
+            
+            <div class="org-connector"></div>
+            
+            <div class="org-level level-2">
+                <div class="org-box admin">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>مدير المدرسة</h4>
+                    <p>الإدارة العامة</p>
+                </div>
+            </div>
+            
+            <div class="org-connector-multi"></div>
+            
+            <div class="org-level level-3">
+                <div class="org-box department">
+                    <i class="fas fa-book-open"></i>
+                    <h4>المنسق الأكاديمي</h4>
+                    <p>الشؤون الأكاديمية</p>
+                </div>
+                <div class="org-box department">
+                    <i class="fas fa-users"></i>
+                    <h4>مسؤولة قسم الإناث</h4>
+                    <p>برامج الإناث</p>
+                </div>
+                <div class="org-box department">
+                    <i class="fas fa-laptop"></i>
+                    <h4>مسؤول الدعم التقني</h4>
+                    <p>التقنية والمنصة</p>
+                </div>
+            </div>
+            
+            <div class="org-connector-multi"></div>
+            
+            <div class="org-level level-4">
+                <div class="org-box teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>الهيئة التعليمية</h4>
+                    <p>المعلمون والمشايخ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Join Team CTA -->
+<section class="section join-team-section">
+    <div class="container">
+        <div class="join-team-card" data-aos="zoom-in">
+            <div class="join-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2>انضم إلى فريقنا</h2>
+            <p>هل أنت معلم أو مختص في علوم القرآن والشريعة؟ نحن نبحث دائماً عن المواهب المتميزة للانضمام إلى فريقنا التعليمي</p>
+            <a href="{{ url_for('contact_page') }}" class="btn btn-primary btn-large">
+                <i class="fas fa-envelope"></i> تواصل معنا
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

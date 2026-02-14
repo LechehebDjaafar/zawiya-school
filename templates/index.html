@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}الرئيسية - المدرسة الإلكترونية للزاوية التجانية{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">نور القرآن وهدي السنة</span>
+                    <span class="title-line highlight">في كل بيت</span>
+                </h1>
+                <p class="hero-subtitle">
+                    المدرسة الإلكترونية للزاوية التجانية بتماسين
+                    <br>
+                    منارة علمية منذ 1803م - تعليم القرآن الكريم وعلومه عن بُعد
+                </p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('register_page') }}" class="btn btn-primary btn-large">
+                        <i class="fas fa-user-plus"></i> سجل الآن مجاناً
+                    </a>
+                    <a href="#programs" class="btn btn-secondary btn-large">
+                        <i class="fas fa-info-circle"></i> تعرف على البرامج
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="{{ statistics.students }}">0</h3>
+                            <p>طالب وطالبة</p>
+                        </div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="{{ statistics.graduates }}">0</h3>
+                            <p>خريج حافظ</p>
+                        </div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="{{ statistics.teachers }}">0</h3>
+                            <p>معلم ومعلمة</p>
+                        </div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="{{ statistics.years }}">0</h3>
+                            <p>عام من العطاء</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                <div class="image-card">
+                    <img src="{{ url_for('static', filename='images/img2.jpeg') }}" 
+                         alt="المسجد النبوي الشريف" 
+                         class="mosque-image">
+                    <div class="image-overlay">
+                        <i class="fas fa-mosque"></i>
+                        <p>المدرسة الإلكترونية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-indicator">
+        <a href="#about">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section about-section" id="about">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">من نحن</span>
+            <h2 class="section-title">الزاوية التجانية بتماسين</h2>
+            <p class="section-description">
+                منارة علمية وروحية تنير دروب طلاب العلم منذ أكثر من قرنين
+            </p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h3>تاريخ عريق</h3>
+                    <p>
+                        الزاوية التجانية هي طريقة صوفية سنية تنسب إلى الشيخ أبي العباس أحمد التيجاني (1150-1230هـ)، 
+                        وتتميز بالاهتمام بذكر الله وتلاوة القرآن الكريم. تأسست الزاوية التجانية في مدينة فاس بالمغرب 
+                        وانتشرت في العديد من الدول العربية والإفريقية.
+                    </p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>التأسيس في تماسين</h3>
+                    <p>
+                        في مدينة تماسين بالجزائر، تحظى الزاوية التجانية بمكانة خاصة، حيث تتخذ من العلم والتعليم منهجاً 
+                        أساسياً في تربيتها لأبناء الأمة. تأسست سنة 1803م وقامت بتحفيظ آلاف الطلاب كتاب الله تعالى.
+                    </p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>المدرسة الإلكترونية</h3>
+                    <p>
+                        ومن هذا المنطلق تأتي المدرسة الإلكترونية لتكون امتداداً لهذا النهج التعليمي الأصيل، 
+                        مستخدمة أحدث التقنيات لإيصال العلم الشرعي لكل بيت مسلم.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="about-image" data-aos="fade-left">
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='images/mosque.jpeg') }}" alt="الزاوية التجانية" class="main-image">
+                    <div class="image-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>"اطلبوا العلم من المهد إلى اللحد"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="section vision-section">
+    <div class="container">
+        <div class="vision-grid">
+            <!-- Vision -->
+            <div class="vision-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="vision-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>رؤيتنا</h3>
+                <p>
+                    أن نكون المدرسة الرائدة إلكترونياً في تعليم القرآن الكريم وعلومه وفق المنهج التجاني الأصيل، 
+                    وأن نصل بكل طالب إلى إتقان تلاوة وحفظ كتاب الله عز وجل مع تفعيل مهاراته وإثراء معارفه.
+                </p>
+            </div>
+            
+            <!-- Mission -->
+            <div class="vision-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="vision-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>رسالتنا</h3>
+                <p>
+                    تقديم تعليم قرآني متميز عبر منصة إلكترونية آمنة وسهلة الاستخدام، تعتمد على أفضل الأساليب التعليمية 
+                    وأحدث التقنيات، مع الحفاظ على الأصالة والهوية الإسلامية.
+                </p>
+            </div>
+            
+            <!-- Goals -->
+            <div class="vision-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="vision-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>أهدافنا</h3>
+                <ul class="goals-list">
+                    <li><i class="fas fa-check"></i> تحفيظ القرآن الكريم بإتقان</li>
+                    <li><i class="fas fa-check"></i> تعليم أحكام التجويد والترتيل</li>
+                    <li><i class="fas fa-check"></i> دراسة التفسير والفقه</li>
+                    <li><i class="fas fa-check"></i> التربية الروحية والأخلاقية</li>
+                    <li><i class="fas fa-check"></i> ربط الطالب بالمنهج التجاني</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Section -->
+<section class="section programs-section" id="programs">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">ماذا نقدم</span>
+            <h2 class="section-title">البرامج التعليمية</h2>
+            <p class="section-description">
+                برامج متنوعة تناسب جميع الأعمار والمستويات
+            </p>
+        </div>
+        
+        <div class="programs-grid">
+            {% for program in programs %}
+            <div class="program-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="program-header">
+                    <div class="program-icon">
+                        <i class="fas {{ program.icon }}"></i>
+                    </div>
+                    <span class="program-badge">{{ program.age_range }}</span>
+                </div>
+                <h3>{{ program.name }}</h3>
+                <p class="program-description">{{ program.description }}</p>
+                <div class="program-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <span>المدة: {{ program.duration }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-video"></i>
+                        <span>حصص مباشرة عبر الإنترنت</span>
+                    </div>
+                </div>
+                <a href="{{ url_for('register_page') }}" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> سجل في هذا البرنامج
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section features-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">مميزاتنا</span>
+            <h2 class="section-title">لماذا تختار مدرستنا؟</h2>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>معلمون متخصصون</h3>
+                <p>نخبة من المعلمين والمشايخ الحاصلين على إجازات في القرآن الكريم</p>
+            </div>
+            
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>مرونة في المواعيد</h3>
+                <p>حصص في أوقات متنوعة لتناسب جميع الطلاب</p>
+            </div>
+            
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>شهادات معتمدة</h3>
+                <p>شهادات إتمام وإجازات للحفاظ المتقنين</p>
+            </div>
+            
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>منصة سهلة الاستخدام</h3>
+                <p>تطبيق ومنصة إلكترونية بسيطة ومتاحة على جميع الأجهزة</p>
+            </div>
+            
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>متابعة مستمرة</h3>
+                <p>تقييم دوري وتقارير تفصيلية عن تقدم الطالب</p>
+            </div>
+            
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="600">
+                <div class="feature-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>تعليم مجاني</h3>
+                <p>جميع البرامج مجانية تماماً لوجه الله تعالى</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="section achievements-section" id="achievements">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">إنجازاتنا</span>
+            <h2 class="section-title">رحلة من النجاحات</h2>
+        </div>
+        
+        <div class="achievements-grid">
+            <div class="achievement-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="achievement-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="achievement-number" data-target="{{ statistics.students }}">0</h3>
+                <p>طالب مسجل</p>
+            </div>
+            
+            <div class="achievement-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="achievement-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="achievement-number" data-target="{{ statistics.graduates }}">0</h3>
+                <p>حافظ متخرج</p>
+            </div>
+            
+            <div class="achievement-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="achievement-icon">
+                    <i class="fas fa-book-quran"></i>
+                </div>
+                <h3 class="achievement-number" data-target="30">0</h3>
+                <p>جزء محفوظ بمعدل</p>
+            </div>
+            
+            <div class="achievement-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="achievement-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3 class="achievement-number" data-target="{{ statistics.years }}">0</h3>
+                <p>عام من العطاء</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section cta-section">
+    <div class="cta-overlay"></div>
+    <div class="container">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2>ابدأ رحلتك مع القرآن الكريم اليوم</h2>
+            <p>انضم إلى آلاف الطلاب الذين يحفظون كتاب الله في مدرستنا الإلكترونية</p>
+            <a href="{{ url_for('register_page') }}" class="btn btn-light btn-large">
+                <i class="fas fa-rocket"></i> سجل الآن مجاناً
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Counter Animation
+    const counters = document.querySelectorAll('.achievement-number');
+    const speed = 200;
+    
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / speed;
+            
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(() => animateCounters(), 1);
+            } else {
+                counter.innerText = target + '+';
+            }
+        });
+    };
+    
+    // Trigger animation when section is visible
+    const achievementsSection = document.querySelector('.achievements-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+    
+    if (achievementsSection) {
+        observer.observe(achievementsSection);
+    }
+</script>
+{% endblock %}

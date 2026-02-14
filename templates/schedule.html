@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% block title %}جدول الحصص - المدرسة الإلكترونية للزاوية التجانية{% endblock %}
+
+{% block extra_css %}
+<style>
+    .schedule-hero {
+        background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+        padding: 150px 0 80px;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Success Hero -->
+<section class="schedule-hero">
+    <div class="container">
+        <div class="text-center" data-aos="zoom-in">
+            <div class="success-icon">
+                <i class="fas fa-check-circle" style="font-size: 5rem; margin-bottom: 20px; animation: scaleIn 0.5s ease;"></i>
+            </div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px;">تم التسجيل بنجاح!</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95;">
+                مرحباً بك في المدرسة الإلكترونية للزاوية التجانية
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Student Info Section -->
+<section class="section student-info-section">
+    <div class="container">
+        <div class="student-info-card" data-aos="fade-up">
+            <div class="card-header">
+                <h2><i class="fas fa-user-graduate"></i> بيانات الطالب</h2>
+            </div>
+            <div class="student-details">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">الاسم الكامل</span>
+                        <span class="detail-value">{{ student['الاسم'] }} {{ student['اللقب'] }}</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">رقم التسجيل</span>
+                        <span class="detail-value highlight">{{ student['معرف فريد'] }}</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">العمر</span>
+                        <span class="detail-value">{{ student['العمر'] }} سنة</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">رقم الهاتف</span>
+                        <span class="detail-value">{{ student['رقم الهاتف'] }}</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">البريد الإلكتروني</span>
+                        <span class="detail-value">{{ student['البريد الإلكتروني'] }}</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">مكان الإقامة</span>
+                        <span class="detail-value">{{ student['مكان الإقامة'] }}, {{ student['الولاية'] }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule Section -->
+<section class="section schedule-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">جدولك الدراسي</span>
+            <h2 class="section-title">مواعيد الحصص</h2>
+            <p class="section-description">
+                هذه هي الحصص المتاحة لك حسب البرنامج الذي اخترته
+            </p>
+        </div>
+        
+        <div class="schedule-grid">
+            {% for schedule in schedules %}
+            <div class="schedule-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="schedule-header">
+                    <div class="schedule-day-badge">
+                        <i class="fas fa-calendar-day"></i>
+                        {{ schedule.day }}
+                    </div>
+                    <div class="schedule-time">
+                        <i class="fas fa-clock"></i>
+                        {{ schedule.time }}
+                    </div>
+                </div>
+                
+                <h3 class="schedule-title">{{ schedule.title }}</h3>
+                
+                <div class="schedule-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>{{ schedule.teacher }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-signal"></i>
+                        <span>{{ schedule.level }}</span>
+                    </div>
+                </div>
+                
+                <p class="schedule-description">{{ schedule.description }}</p>
+                
+                <div class="schedule-actions">
+                    <div class="qr-container">
+                        <p class="qr-label">
+                            <i class="fas fa-qrcode"></i> امسح الرمز للدخول
+                        </p>
+                        <img src="{{ url_for('static', filename='qrcodes/' + qrcodes[schedule.id]) }}" 
+                             alt="QR Code" 
+                             class="qr-image">
+                    </div>
+                    
+                    <a href="{{ schedule.meet_link }}" target="_blank" class="btn btn-meet">
+                        <i class="fab fa-google"></i> انضم عبر Google Meet
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Instructions Section -->
+<section class="section instructions-section">
+    <div class="container">
+        <div class="instructions-card" data-aos="fade-up">
+            <div class="instructions-header">
+                <i class="fas fa-lightbulb"></i>
+                <h2>تعليمات مهمة</h2>
+            </div>
+            
+            <div class="instructions-content">
+                <div class="instruction-item">
+                    <div class="instruction-number">1</div>
+                    <div class="instruction-text">
+                        <h4>احفظ رقم تسجيلك</h4>
+                        <p>رقم التسجيل الخاص بك هو: <strong>{{ student['معرف فريد'] }}</strong> - احتفظ به للرجوع إليه</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-item">
+                    <div class="instruction-number">2</div>
+                    <div class="instruction-text">
+                        <h4>طرق الانضمام للحصص</h4>
+                        <p>يمكنك الانضمام بطريقتين: النقر على زر Google Meet أو مسح رمز QR بهاتفك</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-item">
+                    <div class="instruction-number">3</div>
+                    <div class="instruction-text">
+                        <h4>الالتزام بالمواعيد</h4>
+                        <p>يرجى الحضور قبل موعد الحصة بـ 5 دقائق والالتزام بآداب الحلقة العلمية</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-item">
+                    <div class="instruction-number">4</div>
+                    <div class="instruction-text">
+                        <h4>المتطلبات التقنية</h4>
+                        <p>تأكد من وجود اتصال إنترنت جيد وكاميرا وميكروفون يعملان بشكل صحيح</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-item">
+                    <div class="instruction-number">5</div>
+                    <div class="instruction-text">
+                        <h4>التواصل والدعم</h4>
+                        <p>في حال واجهتك أي مشكلة، تواصل معنا عبر الواتساب على: <strong>+213 555 123 456</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons" data-aos="fade-up">
+            <a href="{{ url_for('index') }}" class="btn btn-outline">
+                <i class="fas fa-home"></i> العودة للرئيسية
+            </a>
+            <a href="{{ url_for('contact_page') }}" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> تواصل معنا
+            </a>
+            <button onclick="window.print()" class="btn btn-secondary">
+                <i class="fas fa-print"></i> طباعة الجدول
+            </button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Animation for success icon
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes scaleIn {
+        0% { transform: scale(0); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+`;
+document.head.appendChild(style);
+
+// Print functionality
+window.onafterprint = function() {
+    alert('تمت الطباعة بنجاح! احتفظ بهذه الورقة للرجوع إليها');
+};
+</script>
+{% endblock %}

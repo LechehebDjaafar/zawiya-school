@@ -1,0 +1,527 @@
+{% extends "base.html" %}
+
+{% block title %}تسجيل طالب جديد - المدرسة الإلكترونية للزاوية التجانية{% endblock %}
+
+{% block extra_css %}
+<style>
+    .register-hero {
+        background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+        padding: 150px 0 80px;
+        color: white;
+        text-align: center;
+    }
+    
+    .register-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .register-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Register Hero -->
+<section class="register-hero">
+    <div class="container">
+        <div data-aos="fade-up">
+            <i class="fas fa-user-plus" style="font-size: 4rem; margin-bottom: 20px;"></i>
+            <h1>تسجيل طالب جديد</h1>
+            <p>املأ النموذج أدناه للانضمام إلى المدرسة الإلكترونية</p>
+        </div>
+    </div>
+</section>
+
+<!-- Registration Form Section -->
+<section class="section register-section">
+    <div class="container">
+        <!-- Progress Steps -->
+        <div class="progress-steps" data-aos="fade-down">
+            <div class="step active" data-step="1">
+                <div class="step-circle">
+                    <i class="fas fa-user"></i>
+                </div>
+                <p>البيانات الشخصية</p>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-circle">
+                    <i class="fas fa-book"></i>
+                </div>
+                <p>اختيار البرنامج</p>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-circle">
+                    <i class="fas fa-check"></i>
+                </div>
+                <p>التأكيد</p>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="register-form-wrapper" data-aos="fade-up">
+            <form id="registerForm" class="register-form">
+                
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" data-step="1">
+                    <h2 class="form-step-title">
+                        <i class="fas fa-user-circle"></i> البيانات الشخصية
+                    </h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">
+                                <i class="fas fa-user"></i> الاسم <span class="required">*</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="أدخل الاسم">
+                            <span class="error-message"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">
+                                <i class="fas fa-user"></i> اللقب <span class="required">*</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="أدخل اللقب">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">
+                                <i class="fas fa-birthday-cake"></i> العمر <span class="required">*</span>
+                            </label>
+                            <input type="number" id="age" name="age" required min="5" max="100" placeholder="أدخل العمر">
+                            <span class="error-message"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">
+                                <i class="fas fa-venus-mars"></i> الجنس <span class="required">*</span>
+                            </label>
+                            <select id="gender" name="gender" required>
+                                <option value="">اختر الجنس</option>
+                                <option value="ذكر">ذكر</option>
+                                <option value="أنثى">أنثى</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> رقم الهاتف <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" required placeholder="مثال: 0555123456" pattern="[0-9]{10}">
+                            <span class="error-message"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> البريد الإلكتروني <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">
+                            <i class="fas fa-map-marker-alt"></i> مكان الإقامة <span class="required">*</span>
+                        </label>
+                        <input type="text" id="address" name="address" required placeholder="أدخل العنوان الكامل">
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">
+                            <i class="fas fa-map"></i> الولاية <span class="required">*</span>
+                        </label>
+                        <select id="state" name="state" required>
+                            <option value="">اختر الولاية</option>
+                            <option value="أدرار">01 - أدرار</option>
+                            <option value="الشلف">02 - الشلف</option>
+                            <option value="الأغواط">03 - الأغواط</option>
+                            <option value="أم البواقي">04 - أم البواقي</option>
+                            <option value="باتنة">05 - باتنة</option>
+                            <option value="بجاية">06 - بجاية</option>
+                            <option value="بسكرة">07 - بسكرة</option>
+                            <option value="بشار">08 - بشار</option>
+                            <option value="البليدة">09 - البليدة</option>
+                            <option value="البويرة">10 - البويرة</option>
+                            <option value="تمنراست">11 - تمنراست</option>
+                            <option value="تبسة">12 - تبسة</option>
+                            <option value="تلمسان">13 - تلمسان</option>
+                            <option value="تيارت">14 - تيارت</option>
+                            <option value="تيزي وزو">15 - تيزي وزو</option>
+                            <option value="الجزائر">16 - الجزائر</option>
+                            <option value="الجلفة">17 - الجلفة</option>
+                            <option value="جيجل">18 - جيجل</option>
+                            <option value="سطيف">19 - سطيف</option>
+                            <option value="سعيدة">20 - سعيدة</option>
+                            <option value="سكيكدة">21 - سكيكدة</option>
+                            <option value="سيدي بلعباس">22 - سيدي بلعباس</option>
+                            <option value="عنابة">23 - عنابة</option>
+                            <option value="قالمة">24 - قالمة</option>
+                            <option value="قسنطينة">25 - قسنطينة</option>
+                            <option value="المدية">26 - المدية</option>
+                            <option value="مستغانم">27 - مستغانم</option>
+                            <option value="المسيلة">28 - المسيلة</option>
+                            <option value="معسكر">29 - معسكر</option>
+                            <option value="ورقلة">30 - ورقلة</option>
+                            <option value="وهران">31 - وهران</option>
+                            <option value="البيض">32 - البيض</option>
+                            <option value="إليزي">33 - إليزي</option>
+                            <option value="برج بوعريريج">34 - برج بوعريريج</option>
+                            <option value="بومرداس">35 - بومرداس</option>
+                            <option value="الطارف">36 - الطارف</option>
+                            <option value="تندوف">37 - تندوف</option>
+                            <option value="تيسمسيلت">38 - تيسمسيلت</option>
+                            <option value="الوادي">39 - الوادي</option>
+                            <option value="خنشلة">40 - خنشلة</option>
+                            <option value="سوق أهراس">41 - سوق أهراس</option>
+                            <option value="تيبازة">42 - تيبازة</option>
+                            <option value="ميلة">43 - ميلة</option>
+                            <option value="عين الدفلى">44 - عين الدفلى</option>
+                            <option value="النعامة">45 - النعامة</option>
+                            <option value="عين تموشنت">46 - عين تموشنت</option>
+                            <option value="غرداية">47 - غرداية</option>
+                            <option value="غليزان">48 - غليزان</option>
+                            <option value="تماسين">تماسين</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-primary btn-next" onclick="nextStep()">
+                            التالي <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Program Selection -->
+                <div class="form-step" data-step="2">
+                    <h2 class="form-step-title">
+                        <i class="fas fa-book-open"></i> اختيار البرنامج التعليمي
+                    </h2>
+                    
+                    <p class="step-description">
+                        اختر البرنامج الذي يناسب عمرك ومستواك التعليمي
+                    </p>
+                    
+                    <div class="programs-selection">
+                        {% for program in programs %}
+                        <div class="program-option" data-program="{{ program.id }}">
+                            <input type="radio" id="program{{ loop.index }}" name="program" value="{{ program.id }}" required>
+                            <label for="program{{ loop.index }}">
+                                <div class="program-option-header">
+                                    <div class="program-option-icon">
+                                        <i class="fas {{ program.icon }}"></i>
+                                    </div>
+                                    <span class="program-badge">{{ program.age_range }}</span>
+                                </div>
+                                <h3>{{ program.name }}</h3>
+                                <p>{{ program.description }}</p>
+                                <div class="program-meta">
+                                    <span><i class="fas fa-clock"></i> {{ program.duration }}</span>
+                                </div>
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary btn-prev" onclick="prevStep()">
+                            <i class="fas fa-arrow-right"></i> السابق
+                        </button>
+                        <button type="button" class="btn btn-primary btn-next" onclick="nextStep()">
+                            التالي <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Confirmation -->
+                <div class="form-step" data-step="3">
+                    <h2 class="form-step-title">
+                        <i class="fas fa-check-circle"></i> مراجعة البيانات والتأكيد
+                    </h2>
+                    
+                    <div class="confirmation-card">
+                        <h3><i class="fas fa-user"></i> البيانات الشخصية</h3>
+                        <div class="confirmation-grid">
+                            <div class="confirmation-item">
+                                <strong>الاسم الكامل:</strong>
+                                <span id="confirm-name"></span>
+                            </div>
+                            <div class="confirmation-item">
+                                <strong>العمر:</strong>
+                                <span id="confirm-age"></span>
+                            </div>
+                            <div class="confirmation-item">
+                                <strong>الجنس:</strong>
+                                <span id="confirm-gender"></span>
+                            </div>
+                            <div class="confirmation-item">
+                                <strong>الهاتف:</strong>
+                                <span id="confirm-phone"></span>
+                            </div>
+                            <div class="confirmation-item">
+                                <strong>البريد الإلكتروني:</strong>
+                                <span id="confirm-email"></span>
+                            </div>
+                            <div class="confirmation-item">
+                                <strong>العنوان:</strong>
+                                <span id="confirm-address"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-card">
+                        <h3><i class="fas fa-book"></i> البرنامج المختار</h3>
+                        <div id="confirm-program" class="program-confirm"></div>
+                    </div>
+                    
+                    <div class="terms-agreement">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">
+                                أوافق على <a href="#" target="_blank">الشروط والأحكام</a> و <a href="#" target="_blank">سياسة الخصوصية</a>
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary btn-prev" onclick="prevStep()">
+                            <i class="fas fa-arrow-right"></i> السابق
+                        </button>
+                        <button type="submit" class="btn btn-success btn-submit">
+                            <i class="fas fa-check"></i> تأكيد التسجيل
+                        </button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Modal -->
+<div class="modal" id="loadingModal">
+    <div class="modal-content loading-content">
+        <div class="spinner-large"></div>
+        <h3>جاري التسجيل...</h3>
+        <p>يرجى الانتظار قليلاً</p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentStep = 1;
+const totalSteps = 3;
+
+// Next Step
+function nextStep() {
+    if (validateStep(currentStep)) {
+        if (currentStep < totalSteps) {
+            currentStep++;
+            updateStep();
+            if (currentStep === 3) {
+                updateConfirmation();
+            }
+        }
+    }
+}
+
+// Previous Step
+function prevStep() {
+    if (currentStep > 1) {
+        currentStep--;
+        updateStep();
+    }
+}
+
+// Update Step Display
+function updateStep() {
+    // Update form steps
+    document.querySelectorAll('.form-step').forEach(step => {
+        step.classList.remove('active');
+        if (parseInt(step.dataset.step) === currentStep) {
+            step.classList.add('active');
+        }
+    });
+    
+    // Update progress steps
+    document.querySelectorAll('.progress-steps .step').forEach(step => {
+        const stepNum = parseInt(step.dataset.step);
+        step.classList.remove('active', 'completed');
+        if (stepNum === currentStep) {
+            step.classList.add('active');
+        } else if (stepNum < currentStep) {
+            step.classList.add('completed');
+        }
+    });
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Validate Step
+function validateStep(step) {
+    const currentFormStep = document.querySelector(`.form-step[data-step="${step}"]`);
+    const inputs = currentFormStep.querySelectorAll('input[required], select[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            showError(input, 'هذا الحقل مطلوب');
+            isValid = false;
+        } else {
+            clearError(input);
+            
+            // Additional validations
+            if (input.type === 'email' && !validateEmail(input.value)) {
+                showError(input, 'البريد الإلكتروني غير صحيح');
+                isValid = false;
+            }
+            
+            if (input.type === 'tel' && !validatePhone(input.value)) {
+                showError(input, 'رقم الهاتف غير صحيح (10 أرقام)');
+                isValid = false;
+            }
+        }
+    });
+    
+    return isValid;
+}
+
+// Show Error
+function showError(input, message) {
+    const formGroup = input.closest('.form-group');
+    const errorElement = formGroup.querySelector('.error-message');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    input.classList.add('error');
+}
+
+// Clear Error
+function clearError(input) {
+    const formGroup = input.closest('.form-group');
+    const errorElement = formGroup.querySelector('.error-message');
+    errorElement.textContent = '';
+    errorElement.style.display = 'none';
+    input.classList.remove('error');
+}
+
+// Validate Email
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Validate Phone
+function validatePhone(phone) {
+    const re = /^[0-9]{10}$/;
+    return re.test(phone);
+}
+
+// Update Confirmation
+function updateConfirmation() {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const age = document.getElementById('age').value;
+    const gender = document.getElementById('gender').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const state = document.getElementById('state').value;
+    const program = document.querySelector('input[name="program"]:checked');
+    
+    document.getElementById('confirm-name').textContent = `${firstName} ${lastName}`;
+    document.getElementById('confirm-age').textContent = `${age} سنة`;
+    document.getElementById('confirm-gender').textContent = gender;
+    document.getElementById('confirm-phone').textContent = phone;
+    document.getElementById('confirm-email').textContent = email;
+    document.getElementById('confirm-address').textContent = `${address}, ${state}`;
+    
+    if (program) {
+        const programLabel = program.nextElementSibling.querySelector('h3').textContent;
+        document.getElementById('confirm-program').innerHTML = `
+            <div class="selected-program">
+                <i class="fas fa-check-circle"></i>
+                <span>${programLabel}</span>
+            </div>
+        `;
+    }
+}
+
+// Form Submission
+document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Check terms agreement
+    if (!document.getElementById('terms').checked) {
+        alert('يجب الموافقة على الشروط والأحكام');
+        return;
+    }
+    
+    // Show loading
+    document.getElementById('loadingModal').classList.add('active');
+    
+    // Collect form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        age: document.getElementById('age').value,
+        gender: document.getElementById('gender').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        state: document.getElementById('state').value,
+        program: document.querySelector('input[name="program"]:checked').value
+    };
+    
+    try {
+        const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        document.getElementById('loadingModal').classList.remove('active');
+        
+        if (result.success) {
+            // Redirect to schedule page
+            window.location.href = `/schedule/${result.student_id}`;
+        } else {
+            alert('حدث خطأ: ' + result.message);
+        }
+    } catch (error) {
+        document.getElementById('loadingModal').classList.remove('active');
+        alert('حدث خطأ في الاتصال بالخادم');
+        console.error(error);
+    }
+});
+
+// Program Selection Styling
+document.querySelectorAll('.program-option').forEach(option => {
+    option.addEventListener('click', function() {
+        document.querySelectorAll('.program-option').forEach(opt => {
+            opt.classList.remove('selected');
+        });
+        this.classList.add('selected');
+        this.querySelector('input[type="radio"]').checked = true;
+    });
+});
+</script>
+{% endblock %}
