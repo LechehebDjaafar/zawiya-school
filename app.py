@@ -154,8 +154,8 @@ SCHEDULE = [
 STRUCTURE = {
     'leadership': [
         {
-            'name': 'الخليفة الشيخ سيدي محمد العيد التجاني التماسيني',
-            'position': 'شيخ الطريقة التجانية',
+            'name': 'الخليفة الدكتور الشيخ سيدي محمد العيد التماسيني',
+            'position': ' شيخ الطريقة التجانية تماسين',
             'description': 'مؤسس الطريقة التجانية ومرشدها الروحي',
             'image': 'sheikh-tijani.jpeg'
         }
@@ -164,23 +164,23 @@ STRUCTURE = {
         {
             'name': 'محمد البشير بن جعوان',
             'position': 'مدير المدرسة الإلكترونية',
-            'email': 'director@zawiya-tijania.dz',
-            'phone': '+213 555 123 456',
+            'email': 'mouhammedelbachir23@gmail.com',
+            'phone': '+213562036738',
             'description': 'إشراف عام على المدرسة وتطوير البرامج التعليمية',
             'image': 'mohamed-director.jpeg'
         },
         {
             'name': 'نجاح قادير',
             'position': 'المنسق الأكاديمي',
-            'email': 'academic@zawiya-tijania.dz',
-            'phone': '+213 555 234 567',
+            'email': 'nadjahkadir@gmail.com',
+            'phone': '+213562036738',
             'description': 'تنسيق البرامج والجداول الدراسية'
         },
         {
-            'name': 'الأستاذة أمينة التجاني',
+            'name': 'الأستاذة باهية التجاني',
             'position': 'مسؤولة قسم الإناث',
-            'email': 'women@zawiya-tijania.dz',
-            'phone': '+213 555 345 678',
+            'email': 'mouhammedelbachir23@gmail.com',
+            'phone': '+213562036738',
             'description': 'الإشراف على برامج تعليم الإناث'
         }
     ],
@@ -208,7 +208,13 @@ STRUCTURE = {
         {
             'name': 'المهندس نجاح قادير',
             'position': 'مسؤول الدعم التقني',
-            'email': 'tech@zawiya-tijania.dz',
+            'email': 'mouhammedelbachir23@gmail.com',
+            'description': 'الدعم التقني والمساعدة في استخدام المنصة'
+        },
+        {
+            'name': 'المهندس امينة التجاني',
+            'position': 'نائب مسؤول الدعم التقني',
+            'email': 'mouhammedelbachir23@gmail.com',
             'description': 'الدعم التقني والمساعدة في استخدام المنصة'
         }
     ]
@@ -216,9 +222,9 @@ STRUCTURE = {
 
 # الإحصائيات
 STATISTICS = {
-    'students': 1250,
+    'students': 515,
     'graduates': 340,
-    'teachers': 15,
+    'teachers': 19,
     'programs': 4,
     'years': 223
 }
