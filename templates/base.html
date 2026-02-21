@@ -10,7 +10,7 @@
     <title>{% block title %}المدرسة الإلكترونية للزاوية التجانية{% endblock %}</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/ico.png') }}">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
                 <!-- Logo -->
                 <a href="{{ url_for('index') }}" class="nav-brand">
                     <div class="logo-container">
-                        <i class="fas fa-mosque logo-icon"></i>
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="لوغو الزاوية التجانية" class="logo-img">
                     </div>
                     <div class="brand-text">
                         <h1>الزاوية التجانية</h1>

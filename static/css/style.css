@@ -293,14 +293,19 @@ ul, ol {
 }
 
 .logo-container {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-md);
+    width: 50px;  
+    height: 50px;  
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 50px;  
+    height: 50px; 
+    object-fit: contain;
+    /* أزلنا border-radius و box-shadow و background */
 }
 
 .logo-icon {
@@ -326,7 +331,49 @@ ul, ol {
     gap: 30px;
     list-style: none;
 }
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
 
+/* .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+} */
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    text-align: right;
+}
+
+.brand-text h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.brand-text span {
+    font-size: 0.70rem;
+    opacity: 0.8;
+    white-space: nowrap;
+}
 .nav-link {
     color: var(--text-color);
     font-size: 1rem;
@@ -3468,11 +3515,11 @@ select {
     }
     
     /* Logo */
-    .logo-container {
+    /* .logo-container {
         width: 50px;
         height: 50px;
     }
-    
+     */
     .logo-icon {
         font-size: 1.5rem;
     }
